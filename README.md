@@ -21,6 +21,70 @@ nes constituyen representaciones cuantitativas de factores clínicos asociados a
 ABCD (Asimetría, Borde, Color, Diámetro), ampliamente utilizado para la evaluación
 inicial de lesiones cutáneas
 
+### Variables del Dataset Escogidas
+Para la utilización del estándar dermatológico del diagnóstico preliminar de un melanoma
+ABCD(Asimetría, Bordes, Color y Diámetro), se utilizarán un grupo de variables del
+dataset ISIC 2024. Este grupo de variables contienen información relacionada con cada
+parámetro.
+Variables relacionadas con la asimetría
+La asimetría de una lesión cutánea es un parámetro relevante para la detección de un
+melanoma, una lesión cutánea que sea muy asimétrica, es candidata a ser un melanoma,
+debido a esto se ha seleccionado un grupo de variables que puedan de representar de
+mejora manera este parámetro.
+Variables seleccionadas:
+**tbp_lv_symm_2axis**: es la medida principal de asimetría, puesto que cuantifica
+la simetría de la lesión con respecto a dos ejes perpendiculares. Valores altos indican
+una lesión altamente irregular o asimétrica, siendo candidata a ser un melanoma.
+tbp_lv_symm_2axis_angle: es una variable complementaria a
+**tbp_lv_symm_2axis**: pues esta indica el ángulo específico donde se detecta el
+eje principal de simetría de la lesión. Esta variable influye en tbp_lv_symm_2axis,
+ya que el grado de simetría puede variar según el ángulo de la imagen.
+Variables relacionadas con la regularidad de los bordes
+Otro parámetro relevante corresponde a la regularidad de los bordes. Si una lesión tiene
+borde muy regulares, indica que las células tiene un crecimiento organizado, una caracte-
+rística que no corresponde a un melanoma, puesto que este tipo de cáncer sé caracteriza
+por tener un crecimiento descontrolado.
+**tbp_lv_area_perim_ratio**: esta variable representa la relación entre el perí-
+metro y el radio de una lesión, esta relación otorga información sobre la forma y los
+bordes de la lesión, si una lesión presenta una gran irregularidad el perímetro será
+mayor, y el área será menor, a su vez si la lesión tiene bordes regulares, el perímetro
+tendrá un valor menor y una área mayor. Con esta variable, si se tiene un mayor
+valor corresponde a bordes más dentados
+**tbp_lv_norm_border**: es una variable normalizada que permite interpretar de
+una forma sencilla el grado dentado de los bordes.
+Variables relacionadas con el contraste de color
+Un melanoma se produce por mutaciones entre las células de la piel encargadas de pro-
+ducir melanina, las lesiones cutáneas que comúnmente se consideran como lunares, tiene
+un color uniforme; sin embargo, las lesiones que tiene un contraste de pigmentación tan-
+to dentro como fuera de la lesión tiene una probabilidad muy alta de ser considerados
+como melanomas. Para representar este parámetro C se ha escogido a este grupo de
+variables:
+**tbp_lv_color_std_mean**: esta variable representa la desviación estándar de
+los valores de color en el interior de la lesión. Esta variable es fundamental por que
+permite conocer que tan homogénea es el color de la lesión, si es muy homogénea
+es muy posible que no sea un melanoma.
+**tbp_lv_deltaLBnorm**: mide el contraste medio entre la lesión y la piel que ro-
+dea a la lesión, esta variable esta normalizada. Las lesiones que no son melanomas
+tienden a tener transiciones suaves, valores normalizados bajos, mientras que me-
+lanomas son muy bruscos con este contraste, valores normalizados altos.
+Variables relacionadas con el diametro
+El parámetro importante que podemos representar con las variables de nuestro dataset
+corresponde al diámetro, por regla general las lesiones que son benignas o no son melanomas suelen tener un diámetro no superior a 6 mm, si una lesión tiene un diámetro
+superior, es muy posible que sea un melanoma.
+Las variables que permite representar este parámetro D son:
+clin_size_long_diam_mm: esta variable representa el diámetro mayor clínico
+de la lesión medido en mm. Si es mayor a 6 mm es posible que sea un melanoma
+**tbp_lv_minorAxisMM**: representa el diámetro menor de la lesión. En conjunto
+con el diámetro mayor, permite evaluar no solo el tamaño, sino también la elonga-
+ción
+**tbp_lv_areaMM2**: esta variable representa el área total de la lesión en milíme-
+tros cuadrados. Esta medida permite tener una representación más completa del
+tamaño y del diámetro
+Cabe indicar que estos parámetros de forma individual aunque sean muy altos, no expre-
+san que una lesión sea un melanoma; sin embargo, una lesión que tengan un comporta-
+miento en conjunto muy alto puede indicar que se tiene un melanoma. Además se incluye
+la variable target que permitirá conocer si una lesión es melanoma o no.
+
 ## Etapa 0 – Selección y filtrado del dataset
 
 Para el desarrollo tentativo de este proyecto, primero se realiza la identificación y selección de las variables del *dataset*, con el fin de llevar a cabo un filtrado adecuado de la información. Se propone conservar únicamente las variables relacionadas con los parámetros clínicos del estándar dermatológico **ABCD**, debido a que este criterio es ampliamente utilizado para la detección temprana del melanoma y ha demostrado ser un método fiable, fácil de aplicar y consistente con el diagnóstico de un experto [5].
