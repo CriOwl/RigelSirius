@@ -35,7 +35,6 @@ Como parte del proceso de filtrado, también es fundamental eliminar datos nulos
 
 Una vez seleccionadas las variables y obtenido el *dataset* filtrado, es necesario aplicar un proceso de normalización. Esto se debe a que cada variable puede presentar unidades y rangos muy diferentes entre sí, lo cual podría generar desequilibrios en el análisis. Para evitar que una variable influya más que otra únicamente por manejar valores de mayor magnitud, se normalizan todas las variables a una misma escala.
 
-
 Se sugiere utilizar la normalización **Min–Max**, ya que permite conservar la forma y distribución original de los datos, además de llevar todas las variables a un rango común.
 
 ---
@@ -63,7 +62,6 @@ Una vez obtenidos los pesos asociados a cada parámetro dentro de la función fi
 Dado que en este tipo de problemas siempre existirán errores de clasificación, el umbral no puede elegirse de forma arbitraria. Por esta razón, se propone emplear un criterio que considere las diferencias entre los posibles tipos de error, de modo que el funcionamiento del sistema sea coherente con el problema clínico analizado.
 
 Para definir el umbral, se prueban diferentes valores dentro del rango permitido y se comparan sus errores asociados, con el objetivo de encontrar aquel que resulte más adecuado para el contexto clínico. El resultado será el umbral que mejor se ajuste al propósito del problema planteado.
-
 
 ## Integrantes
 - Cristhian Carrillo
