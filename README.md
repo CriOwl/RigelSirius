@@ -7,6 +7,20 @@ En este repositorio se trabajará durante el transcurso del proyecto del semestr
 **Descripción del proyecto**:
 El proyecto busca analizar numéricamente características clínicas de las lesiones cutáneas, usando variables que se encuentran en el dataset ISIC 2024 para construir una función que permita detectar o clasificar lesiones cutáneas que podrían corresponder a un melanoma. Para lo cual se usarán variables relacionadas con el estándar dermatológico ABCD (Asimetría, Bordes, Color y Diámetro).
 
+**Descripcion del Dataset**
+El dataset utilizado corresponde al ISIC 2024 - Skin Cancer Detection Challen-
+ge, disponible púbicamente en la plataforma Kaggle, uno de los repositorios más
+completos para el estudio cuantitativo de lesiones cutáneas. Este dataset incluye imáge-
+nes clínico-dermatoscópicas de lunares y lesiones de piel, junto con un conjunto extenso de
+variables tabulares generadas mediante análisis geométricos, cromáticos y estadísticos
+realizados por la International Skin Imaging Collaborating (ISIC).
+Las variables tabulares provienen de procesamientos numéricos sobre las imáge-
+nes, tales como el cálculo de área, perímetro, ejes principales, excentricidad, métricas
+de borde, desviaciones estándar de color y variaciones de pigmentación. Estas medicio-
+nes constituyen representaciones cuantitativas de factores clínicos asociados al estándar
+ABCD (Asimetría, Borde, Color, Diámetro), ampliamente utilizado para la evaluación
+inicial de lesiones cutáneas
+
 ## Etapa 0 – Selección y filtrado del dataset
 
 Para el desarrollo tentativo de este proyecto, primero se realiza la identificación y selección de las variables del *dataset*, con el fin de llevar a cabo un filtrado adecuado de la información. Se propone conservar únicamente las variables relacionadas con los parámetros clínicos del estándar dermatológico **ABCD**, debido a que este criterio es ampliamente utilizado para la detección temprana del melanoma y ha demostrado ser un método fiable, fácil de aplicar y consistente con el diagnóstico de un experto [5].
@@ -21,13 +35,8 @@ Como parte del proceso de filtrado, también es fundamental eliminar datos nulos
 
 Una vez seleccionadas las variables y obtenido el *dataset* filtrado, es necesario aplicar un proceso de normalización. Esto se debe a que cada variable puede presentar unidades y rangos muy diferentes entre sí, lo cual podría generar desequilibrios en el análisis. Para evitar que una variable influya más que otra únicamente por manejar valores de mayor magnitud, se normalizan todas las variables a una misma escala.
 
-La normalización propuesta se define como:
 
-\[
-x_{\text{norm}} = \frac{x - x_{\min}}{x_{\max} - x_{\min}}
-\]
-
-Se sugiere utilizar la normalización **Min–Max**, ya que permite conservar la forma y distribución original de los datos, además de llevar todas las variables a un rango común [6].
+Se sugiere utilizar la normalización **Min–Max**, ya que permite conservar la forma y distribución original de los datos, además de llevar todas las variables a un rango común.
 
 ---
 
